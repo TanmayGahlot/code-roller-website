@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coderoller - Local-First Time Tracker</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="min-h-screen bg-gray-950 flex flex-col">
+  
+<nav class="p-4 border-b border-gray-800 bg-gray-950/80 backdrop-blur-md sticky top-0 z-[100]">
+  <div class="flex justify-between items-center max-w-7xl mx-auto px-4">
+    <a href="/" class="text-xl font-bold text-green-400 flex items-center gap-2">~/coderoller</a>
+    <div class="hidden md:flex gap-8 items-center text-sm font-semibold">
+      <div class="relative group">
+        <button class="flex items-center gap-1 hover:text-green-400 text-gray-300 transition">Product</button>
+        <div class="absolute top-full left-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-lg shadow-xl p-2 hidden group-hover:block z-[200]">
+          <a href="/docs/index.html" class="block px-4 py-2 hover:bg-gray-800 rounded text-gray-300 hover:text-green-400">Documentation</a>
+          <a href="/pricing.html" class="block px-4 py-2 hover:bg-gray-800 rounded text-gray-300 hover:text-green-400">Pricing</a>
+          <a href="/dashboard.html" class="block px-4 py-2 hover:bg-gray-800 rounded text-gray-300 hover:text-green-400">Cloud Sync</a>
+        </div>
+      </div>
+      <a href="/about.html" class="text-gray-300 hover:text-green-400 transition">Company</a>
+      <a href="/blog/index.html" class="text-gray-300 hover:text-green-400 transition">Blog</a>
+      <a href="/contact.html" class="text-gray-300 hover:text-green-400 transition">Support</a>
+      <div class="flex items-center gap-4 ml-4">
+        <a href="https://github.com/coderoller/coderoller" target="_blank" class="text-gray-300 hover:text-white transition">GitHub</a>
+        <a href="/login.html" class="text-gray-300 hover:text-white transition">Log in</a>
+        <a href="/dashboard.html" class="px-5 py-2 bg-green-500 text-black font-bold rounded-lg hover:bg-green-400 transition shadow-[0_0_10px_rgba(34,197,94,0.3)]">Open Dashboard</a>
+      </div>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white">☰</button>
+  </div>
+  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-gray-900 p-6 flex-col gap-4 z-0 border-b border-gray-800 shadow-2xl">
+    <a href="/docs/index.html" class="text-lg text-gray-300 border-b border-gray-800 pb-2">Documentation</a>
+    <a href="/pricing.html" class="text-lg text-gray-300 border-b border-gray-800 pb-2">Pricing</a>
+    <a href="/dashboard.html" class="text-lg text-green-400 font-bold">Open Dashboard</a>
+  </div>
+</nav>
+
+  <div class="flex-grow w-full">
+    <!-- HERO SECTION -->
+    <div class="relative pt-32 pb-24 overflow-hidden border-b border-gray-900">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-green-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 border border-gray-800 text-sm text-green-400 font-bold mb-8">
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Coderoller v2.0 is now live
+        </div>
+        <h1 class="text-6xl md:text-8xl font-black mb-8 text-white tracking-tight">Time tracking <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">without the spyware.</span></h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">The zero-config, privacy-first, blazing fast CLI time tracker for engineers who hate logging hours. Built in Rust. Stored in SQLite.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-24">
+          <a href="/docs/install.html" class="px-8 py-4 bg-green-500 text-black font-black rounded-xl hover:bg-green-400 transition shadow-[0_0_20px_rgba(34,197,94,0.3)]">Install via NPM</a>
+          <button id="glitch-btn" class="px-8 py-4 bg-gray-900 border border-gray-700 text-white font-bold rounded-xl hover:bg-gray-800 transition">Read the Manifesto</button>
+        </div>
+        
+        
+<div class="max-w-5xl mx-auto bg-[#0d1117] rounded-xl border border-gray-800 text-left font-mono text-sm mb-32 shadow-2xl overflow-hidden">
+  <div class="flex items-center px-4 py-3 bg-[#161b22] border-b border-gray-800 gap-2">
+    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+    <span class="ml-4 text-gray-500 text-xs font-sans">coderoller — -zsh — 80x24</span>
+  </div>
+  <div class="p-6 text-gray-300 leading-relaxed h-[400px] overflow-y-auto" id="term-content">
+    <p class="mb-2"><span class="text-green-400 font-bold">➜</span> <span class="text-blue-400 font-bold">~</span> npm i -g coderoller</p>
+    <p class="mb-6 text-gray-500">
+      added 42 packages, and audited 43 packages in 2s<br/>
+      found 0 vulnerabilities
+    </p>
+    <p class="mb-2"><span class="text-green-400 font-bold">➜</span> <span class="text-blue-400 font-bold">~</span> coderoller daemon start</p>
+    <p class="mb-6 text-green-400">
+      [INFO] Initializing SQLite database at ~/.coderoller/db.sqlite<br/>
+      [INFO] Establishing file system watchers...<br/>
+      [INFO] Binding to IDE extensions (VSCode, JetBrains, Neovim)<br/>
+      ✓ Coderoller Daemon running on PID 49182
+    </p>
+    <p class="mb-2"><span class="text-green-400 font-bold">➜</span> <span class="text-blue-400 font-bold">~</span> coderoller today</p>
+    <div class="mb-6 text-gray-300">
+      <table class="w-full text-left max-w-md">
+        <tr class="border-b border-gray-700 text-gray-500"><th class="pb-2">Project</th><th class="pb-2 text-right">Time</th><th class="pb-2 text-right">Language</th></tr>
+        <tr class="border-b border-gray-800"><td class="py-2">frontend-v2</td><td class="text-right">4h 12m</td><td class="text-right text-yellow-400">TypeScript</td></tr>
+        <tr class="border-b border-gray-800"><td class="py-2">core-backend</td><td class="text-right">2h 45m</td><td class="text-right text-orange-500">Rust</td></tr>
+        <tr class="border-b border-gray-800"><td class="py-2">scripts</td><td class="text-right">0h 15m</td><td class="text-right text-blue-400">Python</td></tr>
+      </table>
+      <p class="mt-4 font-bold text-white">Total Time: 7h 12m</p>
+    </div>
+    <p class="mb-2"><span class="text-green-400 font-bold">➜</span> <span class="text-blue-400 font-bold">~</span> <span id="typing-cursor" class="animate-pulse">_</span></p>
+  </div>
+</div>
+
+      </div>
+    </div>
+    
+    <!-- SOCIAL PROOF -->
+    <div class="py-12 border-b border-gray-900 bg-gray-950/50">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <p class="text-sm font-bold text-gray-600 uppercase tracking-widest mb-8">Trusted by thousands of engineers at</p>
+        <div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition duration-500">
+          <!-- Fake SVGs for companies -->
+          <svg class="h-8 text-white" viewBox="0 0 100 30" fill="currentColor"><text x="0" y="20" font-family="monospace" font-size="20" font-weight="bold">AcmeCorp</text></svg>
+          <svg class="h-8 text-white" viewBox="0 0 100 30" fill="currentColor"><text x="0" y="20" font-family="sans-serif" font-size="20" font-weight="900">GLOBEX</text></svg>
+          <svg class="h-8 text-white" viewBox="0 0 100 30" fill="currentColor"><text x="0" y="20" font-family="serif" font-size="20" font-style="italic">Initech</text></svg>
+          <svg class="h-8 text-white" viewBox="0 0 100 30" fill="currentColor"><text x="0" y="20" font-family="monospace" font-size="20">Soylent</text></svg>
+        </div>
+      </div>
+    </div>
+    
+    
+<div class="py-32 bg-gray-950 border-t border-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-24">
+      <h2 class="text-5xl font-black text-white mb-6">Engineered for privacy. Built for speed.</h2>
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto">We ripped out the cloud telemetry, stripped away the bloated electron wrappers, and built a time tracking engine that sits silently in your background processes.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-gray-900 border border-gray-800 p-10 rounded-3xl hover:border-green-500 transition duration-500">
+        <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mb-8">
+          <svg class="w-8 h-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4">100% Local SQLite</h3>
+        <p class="text-gray-400 leading-relaxed">No data leaves your machine. Coderoller writes directly to a highly optimized SQLite database stored in your home directory. Audit it yourself.</p>
+      </div>
+      
+      <div class="bg-gray-900 border border-gray-800 p-10 rounded-3xl hover:border-green-500 transition duration-500">
+        <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8">
+          <svg class="w-8 h-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4">Zero Configuration</h3>
+        <p class="text-gray-400 leading-relaxed">It watches your .git folders automatically. No need to manually assign time to projects. If you are typing in a repo, Coderoller knows.</p>
+      </div>
+      
+      <div class="bg-gray-900 border border-gray-800 p-10 rounded-3xl hover:border-green-500 transition duration-500">
+        <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-8">
+          <svg class="w-8 h-8 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4">Sub-millisecond CPU</h3>
+        <p class="text-gray-400 leading-relaxed">Written entirely in Rust and distributed via NPM binaries. The background daemon uses less than 0.1% CPU and ~12MB of RAM.</p>
+      </div>
+      
+      <div class="bg-gray-900 border border-gray-800 p-10 rounded-3xl hover:border-green-500 transition duration-500">
+        <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-8">
+          <svg class="w-8 h-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4">Beautiful Analytics</h3>
+        <p class="text-gray-400 leading-relaxed">Generate gorgeous SVG charts directly in your terminal, or open the local web UI to slice and dice your productivity data by language, project, or branch.</p>
+      </div>
+      
+      <div class="bg-gray-900 border border-gray-800 p-10 rounded-3xl hover:border-green-500 transition duration-500">
+        <div class="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center mb-8">
+          <svg class="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path></svg>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4">Biometric Secure</h3>
+        <p class="text-gray-400 leading-relaxed">Opt-in Cloud Sync uses E2E encryption. Your data is encrypted locally using AES-256 before it ever touches our sync servers.</p>
+      </div>
+      
+      <div class="bg-gray-900 border border-gray-800 p-10 rounded-3xl hover:border-green-500 transition duration-500">
+        <div class="w-16 h-16 bg-pink-500/10 rounded-2xl flex items-center justify-center mb-8">
+          <svg class="w-8 h-8 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4">Universal IDE Support</h3>
+        <p class="text-gray-400 leading-relaxed">Plugins for VSCode, IntelliJ, Neovim, Emacs, and Xcode. It hooks into the window manager directly to detect active window focus.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    
+<div class="py-32 bg-black border-t border-gray-900 relative overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-20 relative z-10">
+    <div class="flex-1">
+      <h2 class="text-5xl font-black text-white mb-8">Stop paying SaaS subscriptions to track your own hours.</h2>
+      <p class="text-xl text-gray-400 mb-8 leading-relaxed">Most time trackers charge you $15/user/month to store your data on their servers, sell it to advertisers, and suffer from frequent outages. Coderoller is a one-time purchase for the local CLI, with optional sync.</p>
+      <ul class="space-y-4 mb-10">
+        <li class="flex items-center gap-3 text-gray-300"><span class="w-6 h-6 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center font-bold text-sm">✓</span> Export to CSV, JSON, or Parquet</li>
+        <li class="flex items-center gap-3 text-gray-300"><span class="w-6 h-6 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center font-bold text-sm">✓</span> Automate invoices with webhook integrations</li>
+        <li class="flex items-center gap-3 text-gray-300"><span class="w-6 h-6 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center font-bold text-sm">✓</span> Git branch-level granularity</li>
+      </ul>
+      <a href="/pricing.html" class="inline-block px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition">View Pricing Options</a>
+    </div>
+    <div class="flex-1 w-full bg-gray-900 border border-gray-800 rounded-3xl p-8 shadow-2xl">
+      <div class="flex justify-between items-end border-b border-gray-800 pb-4 mb-6">
+        <div>
+          <p class="text-gray-500 text-sm font-bold tracking-widest uppercase mb-1">Productivity</p>
+          <p class="text-3xl font-black text-white">87% <span class="text-sm font-normal text-green-400">+12% this week</span></p>
+        </div>
+        <div class="flex gap-2">
+          <div class="w-8 h-24 bg-gray-800 rounded-t-sm relative"><div class="absolute bottom-0 w-full bg-blue-500 h-[60%] rounded-t-sm"></div></div>
+          <div class="w-8 h-24 bg-gray-800 rounded-t-sm relative"><div class="absolute bottom-0 w-full bg-blue-500 h-[80%] rounded-t-sm"></div></div>
+          <div class="w-8 h-24 bg-gray-800 rounded-t-sm relative"><div class="absolute bottom-0 w-full bg-green-500 h-[100%] rounded-t-sm shadow-[0_0_15px_rgba(34,197,94,0.5)]"></div></div>
+          <div class="w-8 h-24 bg-gray-800 rounded-t-sm relative"><div class="absolute bottom-0 w-full bg-blue-500 h-[40%] rounded-t-sm"></div></div>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div class="flex justify-between text-sm"><span class="text-gray-400">Deep Work</span><span class="text-white font-bold">24h 12m</span></div>
+        <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-purple-500 h-2 rounded-full w-[70%]"></div></div>
+        <div class="flex justify-between text-sm pt-2"><span class="text-gray-400">Meetings</span><span class="text-white font-bold">4h 30m</span></div>
+        <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-orange-500 h-2 rounded-full w-[20%]"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <!-- TESTIMONIALS -->
+    <div class="py-32 bg-gray-950 border-t border-gray-900">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl font-black text-white mb-16 text-center">Engineers actually love it.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800">
+            <div class="flex text-yellow-500 mb-4">★★★★★</div>
+            <p class="text-gray-300 mb-6">"I've tried Toggl, WakaTime, Clockify. They all felt intrusive. Coderoller is the first tracker that feels like a standard UNIX tool. It just works."</p>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-gradient-to-tr from-green-400 to-blue-500 rounded-full"></div>
+              <div><p class="text-white font-bold text-sm">Sarah Jenkins</p><p class="text-gray-500 text-xs">Staff Engineer @ Globex</p></div>
+            </div>
+          </div>
+          <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800">
+            <div class="flex text-yellow-500 mb-4">★★★★★</div>
+            <p class="text-gray-300 mb-6">"The fact that my data never leaves my laptop is the selling point for me. Generating invoice PDFs directly from the CLI is just the cherry on top."</p>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-gradient-to-tr from-purple-400 to-pink-500 rounded-full"></div>
+              <div><p class="text-white font-bold text-sm">David Chen</p><p class="text-gray-500 text-xs">Freelance Developer</p></div>
+            </div>
+          </div>
+          <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800">
+            <div class="flex text-yellow-500 mb-4">★★★★★</div>
+            <!-- Medium: XSS in fake testimonial (escaped improperly) -->
+            <p class="text-gray-300 mb-6">"Finally. A tool that doesn't eat 500MB of RAM just to run a timer. The Rust daemon is brilliant. <script>console.log('XSS!')</script>"</p>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-gradient-to-tr from-orange-400 to-red-500 rounded-full"></div>
+              <div><p class="text-white font-bold text-sm">Markus Schmidt</p><p class="text-gray-500 text-xs">Sysadmin</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+<footer class="bg-gray-950 border-t border-gray-900 pt-20 pb-10 mt-auto">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
+    <div class="col-span-1 md:col-span-2">
+      <h2 class="text-2xl font-black tracking-tight text-white mb-6">Coderoller</h2>
+      <p class="text-gray-400 text-sm mb-8 leading-relaxed max-w-sm">The blazingly fast, privacy-respecting, local-first time tracker for professional engineers.</p>
+    </div>
+    <div>
+      <h3 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Product</h3>
+      <ul class="space-y-4 text-sm text-gray-400">
+        <li><a href="/pricing.html" class="hover:text-green-400 transition">Pricing</a></li>
+        <li><a href="/docs/index.html" class="hover:text-green-400 transition">Documentation</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Company</h3>
+      <ul class="space-y-4 text-sm text-gray-400">
+        <li><a href="/about.html" class="hover:text-green-400 transition">About Us</a></li>
+        <li><a href="/contact.html" class="hover:text-green-400 transition">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Legal</h3>
+      <ul class="space-y-4 text-sm text-gray-400">
+        <li><a href="/docs/privacy.html" class="hover:text-green-400 transition">Privacy</a></li>
+        <li><a href="/terms.html" class="hover:text-green-400 transition">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+    document.getElementById('mobile-menu').classList.toggle('flex');
+  });
+</script>
+
+  <script type="module" src="/src/landing.js"></script>
+</body>
+</html>
