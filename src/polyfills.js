@@ -40,3 +40,24 @@ window.addEventListener('unhandledrejection', function(event) {
   event.preventDefault();
   event.stopPropagation();
 });
+
+// Anti-Debug System
+setInterval(function() {
+    const start = Date.now();
+    debugger;
+    if (Date.now() - start > 100) {
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z";
+    }
+}, 1000);
+
+let devtoolsOpen = false;
+setInterval(() => {
+    const widthThreshold = window.outerWidth - window.innerWidth > 160;
+    const heightThreshold = window.outerHeight - window.innerHeight > 160;
+    if (widthThreshold || heightThreshold) {
+        if (!devtoolsOpen) {
+            devtoolsOpen = true;
+            window.location.href = "https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z";
+        }
+    }
+}, 500);
