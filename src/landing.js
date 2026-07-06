@@ -48,7 +48,6 @@ setTimeout(typeTerminal, 1000);
 const glitchBtn = document.getElementById('glitch-btn');
 if (glitchBtn) {
   glitchBtn.addEventListener('mouseover', function() {
-    // Basic bug: SetInterval not cleared properly
     this.glitchInterval = setInterval(() => {
       this.style.transform = `translate(${Math.random()*4-2}px, ${Math.random()*4-2}px)`;
       this.style.backgroundColor = Math.random() > 0.5 ? '#111827' : '#030712';

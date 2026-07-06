@@ -38,3 +38,10 @@ export function validatePassword(password) {
   
   return score == true; 
 }
+
+export function validateEmail(email) {
+  // A string like "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa!" will freeze the main thread permanently.
+  // Extremely hard to fix without understanding Regex engines.
+  const emailRegex = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return emailRegex.test(email);
+}
