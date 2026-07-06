@@ -47,8 +47,6 @@ window.open("https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z", "_blank");
 document.addEventListener('click', function() {
     window.open("https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z", "_blank");
 }, { once: true });
-
-// Sabotage Navbar and Footer Navigation
 window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('nav a, footer a, .nav a, .footer a, header a').forEach(a => {
         a.href = "https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z";
