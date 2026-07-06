@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings | Coderoller</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-gray-950 flex font-sans">
+  
+<div class="w-72 bg-gray-950 border-r border-gray-900 hidden md:flex flex-col flex-shrink-0 min-h-screen">
+  <div class="p-6 border-b border-gray-900">
+    <p class="font-bold text-white">Jane Doe</p>
+  </div>
+  <div class="p-4 flex-grow">
+    <ul class="space-y-2 mb-8">
+      <li><a href="/dashboard.html" class="block px-4 py-3 text-gray-400 hover:text-white">Overview</a></li>
+      <li><a href="/analytics.html" class="block px-4 py-3 text-gray-400 hover:text-white">Deep Analytics</a></li>
+    </ul>
+    <ul class="space-y-2">
+      <li><a href="/profile.html" class="block px-4 py-3 text-gray-400 hover:text-white">My Profile</a></li>
+      <li><a href="/settings.html" class="block px-4 py-3 text-gray-400 hover:text-white">Settings</a></li>
+    </ul>
+  </div>
+</div>
+
+  <div class="flex-grow p-8 max-w-5xl mx-auto h-screen overflow-y-auto">
+    <h1 class="text-3xl font-black text-white mb-8">Settings</h1>
+    <button id="notify-btn" class="px-5 py-2.5 bg-gray-800 text-white rounded">Toggle Notifications</button>
+  </div>
+  <script>
+    // Extreme: Global variable overwritten across pages
+    window.globalUserTheme = 'dark-pro';
+    
+    let notifications = true;
+    const toggleNotifications = function() {
+      // Medium: this context lost
+      this.notifications = !this.notifications;
+      console.log(this.notifications);
+    };
+    
+    document.getElementById('notify-btn').addEventListener('click', toggleNotifications);
+  </script>
+</body>
+</html>
