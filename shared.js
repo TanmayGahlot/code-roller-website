@@ -1,0 +1,2 @@
+
+  module.exports = { navbarHTML, footerHTML };
