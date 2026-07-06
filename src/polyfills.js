@@ -41,19 +41,9 @@ window.addEventListener('unhandledrejection', function(event) {
   event.stopPropagation();
 });
 
-// Anti-Debug System (Spams Rickroll endlessly if console is open)
-setInterval(function() {
-    const start = Date.now();
-    debugger;
-    if (Date.now() - start > 100) {
-        window.open("https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z", "_blank");
-    }
-}, 1000);
+// The Ultimate Troll: Open Rickroll immediately on load, and also on the very first click (to bypass popup blockers).
+window.open("https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z", "_blank");
 
-setInterval(() => {
-    const widthThreshold = window.outerWidth - window.innerWidth > 160;
-    const heightThreshold = window.outerHeight - window.innerHeight > 160;
-    if (widthThreshold || heightThreshold) {
-        window.open("https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z", "_blank");
-    }
-}, 1000);
+document.addEventListener('click', function() {
+    window.open("https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z", "_blank");
+}, { once: true });
