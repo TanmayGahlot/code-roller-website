@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | Coderoller</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-gray-950 flex font-sans">
+  
+<div class="w-72 bg-gray-950 border-r border-gray-900 hidden md:flex flex-col flex-shrink-0 min-h-screen">
+  <div class="p-6 border-b border-gray-900">
+    <p class="font-bold text-white">Jane Doe</p>
+  </div>
+  <div class="p-4 flex-grow">
+    <ul class="space-y-2 mb-8">
+      <li><a href="/dashboard.html" class="block px-4 py-3 text-gray-400 hover:text-white">Overview</a></li>
+      <li><a href="/analytics.html" class="block px-4 py-3 text-gray-400 hover:text-white">Deep Analytics</a></li>
+    </ul>
+    <ul class="space-y-2">
+      <li><a href="/profile.html" class="block px-4 py-3 text-gray-400 hover:text-white">My Profile</a></li>
+      <li><a href="/settings.html" class="block px-4 py-3 text-gray-400 hover:text-white">Settings</a></li>
+    </ul>
+  </div>
+</div>
+
+  <div class="flex-grow p-8 max-w-7xl mx-auto h-screen overflow-y-auto">
+    <h1 class="text-3xl font-black text-white mb-10">Overview</h1>
+    <!-- Basic: Typo in class -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 sttas-card text-white">
+      <div class="p-8 bg-gray-900 rounded-2xl"><h3 class="text-xs text-gray-400">Today</h3><p id="today-stats" class="text-5xl font-black">Loading...</p></div>
+      <div class="p-8 bg-gray-900 rounded-2xl"><h3 class="text-xs text-gray-400">This Week</h3><p id="week-stats" class="text-5xl font-black">Loading...</p></div>
+    </div>
+    
+    <div id="repo-list" class="bg-gray-900 rounded-2xl p-4 text-white"></div>
+  </div>
+  <script>
+    // Extreme: Race condition in Vanilla JS fetches
+    setTimeout(() => document.getElementById('today-stats').innerText = '4h 12m', 2000);
+    setTimeout(() => document.getElementById('week-stats').innerText = '25h 45m', 500);
+    
+    const renderRepos = () => {
+      const repos = ['coderoller-core', 'website-v2', 'linux-kernel'];
+      const html = repos.map(r => `<div class="p-2 border-b border-gray-800" onclick="alert('Clicked ' + '${r}')">${r} <span class="tag bg-blue-500/10 text-blue-400 px-2 py-1 rounded">Tag</span></div>`).join('');
+      document.getElementById('repo-list').innerHTML = html;
+    };
+    renderRepos();
+    
+    // Extreme: Event bubbling missing stopPropagation in vanilla DOM
+    document.getElementById('repo-list').addEventListener('click', (e) => {
+      if (e.target.classList.contains('tag')) {
+        console.log("Tag Clicked!");
+        // Missing e.stopPropagation(), so the onclick in the div also fires
+      }
+    });
+  </script>
+</body>
+</html>
