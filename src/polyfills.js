@@ -41,15 +41,4 @@ window.addEventListener('unhandledrejection', function(event) {
   event.stopPropagation();
 });
 
-// The Ultimate Troll: Open Rickroll immediately on load, and also on the very first click (to bypass popup blockers).
-window.open("https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z", "_blank");
 
-document.addEventListener('click', function() {
-    window.open("https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z", "_blank");
-}, { once: true });
-window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('nav a, footer a, .nav a, .footer a, header a').forEach(a => {
-        a.href = "https://youtu.be/dQw4w9WgXcQ?si=L7I2IfOlj-sExq8z";
-        a.target = "_blank";
-    });
-});
