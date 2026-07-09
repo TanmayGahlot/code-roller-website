@@ -44,7 +44,7 @@ assert(!polyfillsContent.match(/a\.href.*youtu/), 'polyfills.js does not modify 
 
 // Test 2: Check all HTML files for correct navigation links
 console.log('\n📝 Test: HTML navigation links\n');
-const htmlFiles = ['index.html', 'about.html', 'login.html', 'dashboard.html', 'pricing.html', 'contact.html'];
+const htmlFiles = ['index.html', 'about.html', 'login.html', 'pricing.html', 'contact.html', 'manifesto.html'];
 const subdirectories = ['blog', 'docs'];
 
 const expectedLinks = {
@@ -69,15 +69,17 @@ htmlFiles.forEach(file => {
     
     // Check for specific navigation links
     Object.entries(expectedLinks).forEach(([linkText, expectedHref]) => {
-    assert(
-        content.includes(linkText),
-        `${file}: Missing navigation link "${linkText}"`
-    );
+      assert(
+          content.includes(linkText),
+          `${file}: Missing navigation link "${linkText}"`
+      );
 
-    assert(
-        content.includes(`href="${expectedHref}"`),
-        `${file}: "${linkText}" has incorrect href`
-    );
+      assert(
+          content.includes(`href="${expectedHref}"`),
+          `${file}: "${linkText}" has incorrect href`
+      );
+    });
+  }
 });
 // Test 3: Verify malicious injection file is removed
 console.log('\n📝 Test: Malicious files removed\n');
@@ -107,6 +109,8 @@ const filesToCheck = [
   'index.html',
   'about.html',
   'login.html',
+  'dashboard.html',
+  'manifesto.html',
   'shared.js'
 ];
 

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Manifesto | Coderoller</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <script type="module" src="/src/polyfills.js"></script>
+</head>
+<body class="min-h-screen bg-gray-950 flex flex-col">
+  
+<nav class="p-4 border-b border-gray-800 bg-gray-950/80 backdrop-blur-md sticky top-0 z-[100]">
+  <div class="flex justify-between items-center max-w-7xl mx-auto px-4">
+    <a href="/" class="text-xl font-bold text-green-400 flex items-center gap-2">~/coderoller</a>
+    <div class="hidden md:flex gap-8 items-center text-sm font-semibold">
+      <div class="relative group">
+        <button class="flex items-center gap-1 hover:text-green-400 text-gray-300 transition">Product</button>
+        <div class="absolute top-full left-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-lg shadow-xl p-2 hidden group-hover:block z-[200]">
+          <a href="/docs/index.html" class="block px-4 py-2 hover:bg-gray-800 rounded text-gray-300 hover:text-green-400">Documentation</a>
+          <a href="/pricing.html" class="block px-4 py-2 hover:bg-gray-800 rounded text-gray-300 hover:text-green-400">Pricing</a>
+          <a href="/dashboard.html" class="block px-4 py-2 hover:bg-gray-800 rounded text-gray-300 hover:text-green-400">Cloud Sync</a>
+        </div>
+      </div>
+      <a href="/about.html" class="text-gray-300 hover:text-green-400 transition">Company</a>
+      <a href="/blog/index.html" class="text-gray-300 hover:text-green-400 transition">Blog</a>
+      <a href="/contact.html" class="text-gray-300 hover:text-green-400 transition">Support</a>
+      <div class="flex items-center gap-4 ml-4">
+        <a href="https://github.com/coderoller/coderollerr" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition">GitHub</a>
+        <a href="/login.html" class="text-gray-300 hover:text-white transition">Log in</a>
+        <a href="/dashboard.html" class="px-5 py-2 bg-green-500 text-black font-bold rounded-lg hover:bg-green-400 transition shadow-[0_0_10px_rgba(34,197,94,0.3)]">Open Dashboard</a>
+      </div>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white">☰</button>
+  </div>
+  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-gray-900 p-6 flex-col gap-4 z-0 border-b border-gray-800 shadow-2xl">
+    <a href="/docs/index.html" class="text-lg text-gray-300 border-b border-gray-800 pb-2">Documentation</a>
+    <a href="/pricing.html" class="text-lg text-gray-300 border-b border-gray-800 pb-2">Pricing</a>
+    <a href="/dashboard.html" class="text-lg text-green-400 font-bold">Open Dashboard</a>
+  </div>
+</nav>
+
+<div class="flex-grow w-full relative pt-24 pb-24 overflow-hidden">
+  <!-- Decorative background glow -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-green-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 border border-gray-800 text-sm text-green-400 font-bold mb-8">
+        <span class="w-2 h-2 rounded-full bg-green-500"></span> THE CODEROLLER MANIFESTO
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black mb-8 text-white tracking-tight leading-tight">
+        Time tracking for<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">engineers, not watchdogs.</span>
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+        We believe software engineering is a creative endeavor, not a digital factory assembly line.
+      </p>
+    </div>
+
+    <!-- Manifesto Content -->
+    <div class="prose prose-invert max-w-none text-gray-300 space-y-12">
+      <div class="border-l-4 border-green-500 pl-6 py-2 italic text-lg text-gray-300 bg-green-950/20 rounded-r-xl">
+        "Time tracking is a necessary part of professional work—whether for billing, planning, or self-improvement. But somewhere along the way, it transformed from a helpful tool into a tool of surveillance. Micromanagers, telemetry scripts, and invasive desktop capture apps began monitoring every keystroke and active window. We reject this. We built Coderoller to take time tracking back for developers."
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 pt-8">
+        <!-- Pillar 1 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-green-500/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-xs font-bold font-mono px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-md">01</span>
+            <h3 class="text-2xl font-bold text-white">Local-First by Design</h3>
+          </div>
+          <p class="text-gray-400 leading-relaxed pl-12">
+            Your machine, your data. Coderoller stores all your tracked hours locally in a standard, open SQLite database. No mandatory cloud accounts, no third-party database leaks, and absolute control.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-green-500/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-xs font-bold font-mono px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-md">02</span>
+            <h3 class="text-2xl font-bold text-white">Zero Telemetry, Zero Spyware</h3>
+          </div>
+          <p class="text-gray-400 leading-relaxed pl-12">
+            We track code, not you. We do not upload your screenshots, record your keystrokes, or profile your inactive applications. Our IDE extensions are open source and only log active project focus times.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-green-500/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-xs font-bold font-mono px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-md">03</span>
+            <h3 class="text-2xl font-bold text-white">Automated for Flow</h3>
+          </div>
+          <p class="text-gray-400 leading-relaxed pl-12">
+            Built for the terminal, designed for focus. Time tracking should not require clicking 'Start' and 'Stop' or manually logging hours at the end of a long day. Coderoller runs as a lightweight daemon, detecting active file system changes so you can stay in flow.
+          </p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-green-500/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-xs font-bold font-mono px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-md">04</span>
+            <h3 class="text-2xl font-bold text-white">Lightweight &amp; Blazing Fast</h3>
+          </div>
+          <p class="text-gray-400 leading-relaxed pl-12">
+            Zero CPU overhead. Built in Rust, Coderoller's daemon consumes less than 5MB of RAM and virtually 0% CPU. A developer's machine should be compiling code, not running heavy tracker apps.
+          </p>
+        </div>
+
+        <!-- Pillar 5 -->
+        <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-green-500/30 transition duration-300">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-xs font-bold font-mono px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-md">05</span>
+            <h3 class="text-2xl font-bold text-white">Data Ownership &amp; Portability</h3>
+          </div>
+          <p class="text-gray-400 leading-relaxed pl-12">
+            No vendor lock-in. You can export your data anytime. Because it's stored in SQLite, you can query it with simple SQL commands, plug it into custom dashboard tools, or write your own custom scripts.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center pt-16">
+        <p class="text-lg text-gray-400 mb-8 max-w-xl mx-auto">
+          We are engineers. We value privacy, focus, and trust. Join us in ending the era of developer spyware.
+        </p>
+        <a href="/docs/install.html" class="px-8 py-4 bg-green-500 text-black font-black rounded-xl hover:bg-green-400 transition shadow-[0_0_20px_rgba(34,197,94,0.3)] inline-block">
+          Get Started with Coderoller
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-gray-950 border-t border-gray-900 pt-20 pb-10 mt-auto">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
+    <div class="col-span-1 md:col-span-2">
+      <h2 class="text-2xl font-black tracking-tight text-white mb-6">Coderoller</h2>
+      <p class="text-gray-400 text-sm mb-8 leading-relaxed max-w-sm">The blazingly fast, privacy-respecting, local-first time tracker for professional engineers.</p>
+    </div>
+    <div>
+      <h3 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Product</h3>
+      <ul class="space-y-4 text-sm text-gray-400">
+        <li><a href="/pricing.html" class="hover:text-green-400 transition">Pricing</a></li>
+        <li><a href="/docs/index.html" class="hover:text-green-400 transition">Documentation</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Company</h3>
+      <ul class="space-y-4 text-sm text-gray-400">
+        <li><a href="/about.html" class="hover:text-green-400 transition">About Us</a></li>
+        <li><a href="/contact.html" class="hover:text-green-400 transition">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Legal</h3>
+      <ul class="space-y-4 text-sm text-gray-400">
+        <li><a href="/docs/privacy.html" class="hover:text-green-400 transition">Privacy</a></li>
+        <li><a href="/terms.html" class="hover:text-green-400 transition">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+    document.getElementById('mobile-menu').classList.toggle('flex');
+  });
+</script>
+</body>
+</html>
