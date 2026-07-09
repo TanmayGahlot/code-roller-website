@@ -69,13 +69,16 @@ htmlFiles.forEach(file => {
     
     // Check for specific navigation links
     Object.entries(expectedLinks).forEach(([linkText, expectedHref]) => {
-      if (content.includes(linkText)) {
-        assert(content.includes(`href="${expectedHref}"`), `${file}: ${linkText} link has correct href`);
-      }
-    });
-  }
-});
+    assert(
+        content.includes(linkText),
+        `${file}: Missing navigation link "${linkText}"`
+    );
 
+    assert(
+        content.includes(`href="${expectedHref}"`),
+        `${file}: "${linkText}" has incorrect href`
+    );
+});
 // Test 3: Verify malicious injection file is removed
 console.log('\n📝 Test: Malicious files removed\n');
 const injectionFileExists = fs.existsSync(path.join(projectRoot, 'inject_speed_and_rickroll.cjs'));
