@@ -11,7 +11,7 @@
   
 <div class="w-72 bg-gray-950 border-r border-gray-900 hidden md:flex flex-col flex-shrink-0 min-h-screen">
   <div class="p-6 border-b border-gray-900">
-    <p class="font-bold text-white">Jane Doe</p>
+    <p id="sidebar_username" class="font-bold text-white">prabhav chakka</p>
   </div>
   <div class="p-4 flex-grow">
     <ul class="space-y-2 mb-8">
@@ -35,6 +35,7 @@
     <div id="repo-list" class="bg-gray-900 rounded-2xl p-4 text-white"></div>
   </div>
   <script>
+    document.getElementById('sidebar_username').innerText = localStorage.getItem('username') || 'prabhav chakka';
     setTimeout(() => document.getElementById('today-stats').innerText = '4h 12m', 2000);
     setTimeout(() => document.getElementById('week-stats').innerText = '25h 45m', 500);
     

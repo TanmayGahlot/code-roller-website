@@ -1,41 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Profile | Coderoller</title>
   <link rel="stylesheet" href="/src/style.css">
   <script type="module" src="/src/polyfills.js"></script>
 </head>
+
 <body class="bg-gray-950 flex font-sans">
-  
-<div class="w-72 bg-gray-950 border-r border-gray-900 hidden md:flex flex-col flex-shrink-0 min-h-screen">
-  <div class="p-6 border-b border-gray-900">
-    <p class="font-bold text-white">Jane Doe</p>
+
+  <div class="w-72 bg-gray-950 border-r border-gray-900 hidden md:flex flex-col flex-shrink-0 min-h-screen">
+    <div class="p-6 border-b border-gray-900">
+      <p id="sidebar_username" class="font-bold text-white">prabhav chakka</p>
+    </div>
+    <div class="p-4 flex-grow">
+      <ul class="space-y-2 mb-8">
+        <li><a href="/dashboard.html" class="block px-4 py-3 text-gray-400 hover:text-white">Overview</a></li>
+        <li><a href="/analytics.html" class="block px-4 py-3 text-gray-400 hover:text-white">Deep Analytics</a></li>
+      </ul>
+      <ul class="space-y-2">
+        <li><a href="/profile.html" class="block px-4 py-3 text-gray-400 hover:text-white">My Profile</a></li>
+        <li><a href="/settings.html" class="block px-4 py-3 text-gray-400 hover:text-white">Settings</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="p-4 flex-grow">
-    <ul class="space-y-2 mb-8">
-      <li><a href="/dashboard.html" class="block px-4 py-3 text-gray-400 hover:text-white">Overview</a></li>
-      <li><a href="/analytics.html" class="block px-4 py-3 text-gray-400 hover:text-white">Deep Analytics</a></li>
-    </ul>
-    <ul class="space-y-2">
-      <li><a href="/profile.html" class="block px-4 py-3 text-gray-400 hover:text-white">My Profile</a></li>
-      <li><a href="/settings.html" class="block px-4 py-3 text-gray-400 hover:text-white">Settings</a></li>
-    </ul>
-  </div>
-</div>
 
   <div class="flex-grow p-8 max-w-5xl mx-auto h-screen overflow-y-auto">
     <h1 class="text-3xl font-black text-white mb-8">My Profile</h1>
-    <input type="text" id="name" value="HackerMan" readonly="false" class="bg-gray-900 text-white p-2" />
-    <button id="save-btn" class="bg-green-500 p-2 mt-4">Save</button>
+
+    <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 max-w-xl">
+      <h2 class="text-xl font-bold text-white mb-6">Profile Settings</h2>
+
+      <div class="mb-6">
+        <label for="name" class="block mb-2 text-sm font-bold text-gray-400">Display Name</label>
+        <input type="text" id="name"
+          class="w-full bg-gray-950 border border-gray-700 rounded-xl p-4 text-white focus:outline-none focus:border-green-500 transition"
+          placeholder="Enter display name" />
+      </div>
+
+      <button id="save-btn"
+        class="px-6 py-3.5 bg-green-500 text-black font-bold rounded-xl hover:bg-green-400 transition shadow-[0_0_15px_rgba(34,197,94,0.2)]">Save
+        Changes</button>
+
+      <p id="save-feedback" class="mt-4 text-sm text-green-400 hidden font-bold">Don't TOUCH Me UwU</p>
+    </div>
   </div>
   <script>
-    const user = { name: "HackerMan" };
+    const loadProfile = () => {
+      const storedName = localStorage.getItem('username') || 'prabhav chakka';
+      document.getElementById('name').value = storedName;
+      document.getElementById('sidebar_username').innerText = storedName;
+    };
+
+    loadProfile();
+
     document.getElementById('save-btn').addEventListener('click', () => {
-      user.name = document.getElementById('name').value;
-      console.log("Saved", user);
+      const newName = document.getElementById('name').value.trim();
+      if (newName) {
+        localStorage.setItem('username', newName);
+        document.getElementById('sidebar_username').innerText = newName;
+
+        const feedback = document.getElementById('save-feedback');
+        feedback.classList.remove('hidden');
+        setTimeout(() => {
+          feedback.classList.add('hidden');
+        }, 3000);
+      }
     });
   </script>
 </body>
+
 </html>

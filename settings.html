@@ -11,7 +11,7 @@
   
 <div class="w-72 bg-gray-950 border-r border-gray-900 hidden md:flex flex-col flex-shrink-0 min-h-screen">
   <div class="p-6 border-b border-gray-900">
-    <p class="font-bold text-white">Jane Doe</p>
+    <p id="sidebar_username" class="font-bold text-white">prabhav chakka</p>
   </div>
   <div class="p-4 flex-grow">
     <ul class="space-y-2 mb-8">
@@ -30,6 +30,7 @@
     <button id="notify-btn" class="px-5 py-2.5 bg-gray-800 text-white rounded">Toggle Notifications</button>
   </div>
   <script>
+    document.getElementById('sidebar_username').innerText = localStorage.getItem('username') || 'prabhav chakka';
     window.globalUserTheme = 'dark-pro';
     
     let notifications = true;
