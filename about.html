@@ -40,11 +40,39 @@
 </nav>
 
   <div class="flex-grow max-w-5xl mx-auto px-6 py-24 text-center">
-    <h1 class="text-5xl font-black text-white mb-10">Our Mission</h1>
-    <p id="founder-text" class="text-2xl text-gray-400 mb-20"></p>
-    <div class="bg-gray-900 p-10 rounded-3xl border border-gray-800">
+    <h1 class="text-5xl font-black text-white mb-8">Our Mission</h1>
+    <p class="text-2xl text-gray-400 mb-20 leading-relaxed max-w-3xl mx-auto">We are on a mission to build the world's most powerful productivity tools that respect developer privacy by default.</p>
+    
+    <div class="bg-gray-900 p-10 md:p-16 rounded-3xl border border-gray-800 text-left mb-20 shadow-2xl">
       <h2 class="text-3xl font-bold text-white mb-6">The Story</h2>
-      <p class="text-gray-400">It started in 2024 when we realized time trackers were sending payload telemetry to the cloud...</p>
+      <p class="text-gray-400 leading-relaxed mb-6">It started in 2024 when our founding engineering team audited the network traffic of popular time-tracking applications. We were horrified to discover that every window focus change, every idle minute, and sometimes even active window titles were being continuously streamed to third-party cloud servers.</p>
+      <p class="text-gray-400 leading-relaxed mb-6">These tools were built for managers to spy on their employees, not for engineers trying to genuinely understand and optimize their deep work.</p>
+      <p class="text-gray-400 leading-relaxed">So, we threw out our subscriptions and built Coderoller. We chose Rust for absolute maximum performance and SQLite to guarantee that your data stays on your machine. No telemetry. No spyware. Just blazing fast, beautiful insights into how you spend your time.</p>
+    </div>
+
+    <h2 class="text-3xl font-bold text-white mb-12">Core Values</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <div class="bg-gray-950 border border-gray-800 p-8 rounded-2xl">
+        <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Privacy First</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Your data is your own. We do not track you, we do not sell your data, and our core product works 100% offline.</p>
+      </div>
+      <div class="bg-gray-950 border border-gray-800 p-8 rounded-2xl">
+        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Absolute Speed</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">A background tool shouldn't drain your laptop battery. We ruthlessly optimize for CPU and memory efficiency.</p>
+      </div>
+      <div class="bg-gray-950 border border-gray-800 p-8 rounded-2xl">
+        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Open Ecosystem</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">We provide simple APIs and local database access so you can build your own dashboards and integrations.</p>
+      </div>
     </div>
   </div>
   
@@ -83,10 +111,5 @@
     document.getElementById('mobile-menu').classList.toggle('flex');
   });
 </script>
-
-  <script>
-    var founder = "Jane Doe";
-    document.getElementById('founder-text').innerText = "Created by " + founder + " to solve privacy-invasive tracking.";
-  </script>
 </body>
 </html>

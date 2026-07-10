@@ -58,7 +58,29 @@
 
     <div class="flex-grow max-w-3xl">
       <h1 class="text-4xl font-black mb-6 text-white">Introduction</h1>
-      <p class="text-xl text-gray-400 mb-10">Coderoller is a background daemon and CLI that meticulously tracks your coding activity.</p>
+      <p class="text-xl text-gray-400 mb-6 leading-relaxed">Coderoller is a blazingly fast, privacy-first background daemon and CLI tool that meticulously tracks your coding activity. Unlike traditional cloud-based trackers, it stores everything locally, keeping your productivity data exclusively in your hands.</p>
+      
+      <h2 class="text-2xl font-bold text-white mt-12 mb-4">Why Coderoller?</h2>
+      <p class="text-gray-400 mb-6 leading-relaxed">Most modern time-tracking tools treat your data as a commodity. They sync every keystroke to their servers, charge monthly subscriptions, and often consume a significant amount of system resources with bulky Electron apps.</p>
+      <p class="text-gray-400 mb-8 leading-relaxed">We built Coderoller to be different. It runs silently in the background with minimal overhead, requiring zero manual configuration after the initial setup. By automatically watching your local <code class="bg-gray-800 text-green-400 px-2 py-1 rounded">.git</code> repositories and IDE activity, it maps your time perfectly without you ever clicking a "start" button.</p>
+
+      <h2 class="text-2xl font-bold text-white mt-12 mb-4">Key Features</h2>
+      <ul class="list-disc list-inside text-gray-400 space-y-3 mb-10">
+        <li><strong class="text-white">Local-first:</strong> All data is stored in a highly optimized local SQLite database (<code class="bg-gray-800 text-green-400 px-1 rounded">~/.coderoller/db.sqlite</code>).</li>
+        <li><strong class="text-white">Zero Configuration:</strong> Auto-detects projects based on Git repositories.</li>
+        <li><strong class="text-white">Sub-millisecond CPU Usage:</strong> Written entirely in Rust. Uses less than 0.1% CPU and ~12MB of RAM.</li>
+        <li><strong class="text-white">Universal IDE Support:</strong> Seamlessly hooks into VSCode, JetBrains, Neovim, and Xcode.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white mt-12 mb-4">Quick Start</h2>
+      <p class="text-gray-400 mb-4">You can install Coderoller globally via NPM:</p>
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-4 mb-6">
+        <code class="text-green-400">npm install -g coderoller</code>
+      </div>
+      <p class="text-gray-400 mb-4">Once installed, simply start the daemon:</p>
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-4 mb-10">
+        <code class="text-green-400">coderoller daemon start</code>
+      </div>
     </div>
   </div>
   

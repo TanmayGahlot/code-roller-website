@@ -40,9 +40,69 @@
 </nav>
 
   <div class="flex-grow max-w-7xl mx-auto px-6 py-24 w-full">
-    <h1 class="text-5xl font-black text-white mb-6">Blog</h1>
-    <p><div class="bg-gray-900 p-4">Post Wrapper</div></p>
-    <a href="/blog/1.html" class="text-green-400">Read Post 1</a>
+    <div class="text-center mb-16">
+      <h1 class="text-5xl font-black text-white mb-6">The Coderoller Blog</h1>
+      <p class="text-xl text-gray-400">Engineering deep dives, productivity philosophy, and product updates.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Post 1 -->
+      <a href="/blog/1.html" class="group bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden hover:border-green-500 transition duration-300 flex flex-col">
+        <div class="h-48 bg-gray-800 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-tr from-green-500/20 to-blue-500/20 group-hover:scale-105 transition duration-500"></div>
+        </div>
+        <div class="p-8 flex-grow flex flex-col">
+          <div class="flex items-center gap-4 text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+            <span class="text-green-400">Engineering</span>
+            <span>May 12, 2026</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition">Why we chose Rust for our background daemon</h2>
+          <p class="text-gray-400 leading-relaxed mb-6 flex-grow">When building a tool that runs 100% of the time, efficiency isn't a feature—it's a requirement. Here's why we rewrote our daemon from Go to Rust.</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center font-bold text-white text-xs">AD</div>
+            <span class="text-sm text-gray-400 font-bold">Alex Dev</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Post 2 -->
+      <a href="/blog/2.html" class="group bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden hover:border-green-500 transition duration-300 flex flex-col">
+        <div class="h-48 bg-gray-800 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-pink-500/20 group-hover:scale-105 transition duration-500"></div>
+        </div>
+        <div class="p-8 flex-grow flex flex-col">
+          <div class="flex items-center gap-4 text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+            <span class="text-purple-400">Philosophy</span>
+            <span>April 28, 2026</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition">The problem with modern time tracking</h2>
+          <p class="text-gray-400 leading-relaxed mb-6 flex-grow">Productivity tools should serve the creator, not the manager. We explore the toxic culture of surveillance software in modern remote work.</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center font-bold text-white text-xs">JD</div>
+            <span class="text-sm text-gray-400 font-bold">Jane Doe</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Post 3 -->
+      <a href="/blog/3.html" class="group bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden hover:border-green-500 transition duration-300 flex flex-col">
+        <div class="h-48 bg-gray-800 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-tr from-orange-500/20 to-yellow-500/20 group-hover:scale-105 transition duration-500"></div>
+        </div>
+        <div class="p-8 flex-grow flex flex-col">
+          <div class="flex items-center gap-4 text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+            <span class="text-orange-400">Product</span>
+            <span>March 15, 2026</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition">Announcing Coderoller v2.0</h2>
+          <p class="text-gray-400 leading-relaxed mb-6 flex-grow">We've completely overhauled the local UI, added Neovim support, and open-sourced our SQLite schema. Check out what's new.</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center font-bold text-black text-xs">CR</div>
+            <span class="text-sm text-gray-400 font-bold">Coderoller Team</span>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
   
 <footer class="bg-gray-950 border-t border-gray-900 pt-20 pb-10 mt-auto">

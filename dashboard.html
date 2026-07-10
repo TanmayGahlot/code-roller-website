@@ -26,32 +26,113 @@
 </div>
 
   <div class="flex-grow p-8 max-w-7xl mx-auto h-screen overflow-y-auto">
-    <h1 class="text-3xl font-black text-white mb-10">Overview</h1>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 sttas-card text-white">
-      <div class="p-8 bg-gray-900 rounded-2xl"><h3 class="text-xs text-gray-400">Today</h3><p id="today-stats" class="text-5xl font-black">Loading...</p></div>
-      <div class="p-8 bg-gray-900 rounded-2xl"><h3 class="text-xs text-gray-400">This Week</h3><p id="week-stats" class="text-5xl font-black">Loading...</p></div>
+    <div class="flex justify-between items-center mb-10">
+      <h1 class="text-3xl font-black text-white">Overview</h1>
+      <button class="bg-gray-800 text-white px-4 py-2 rounded-lg font-bold hover:bg-gray-700 transition">Sync Now</button>
     </div>
     
-    <div id="repo-list" class="bg-gray-900 rounded-2xl p-4 text-white"></div>
+    <!-- Top Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 text-white">
+      <div class="p-6 bg-gray-900 rounded-2xl border border-gray-800">
+        <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Today</h3>
+        <p class="text-4xl font-black text-green-400">6h 42m</p>
+      </div>
+      <div class="p-6 bg-gray-900 rounded-2xl border border-gray-800">
+        <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">This Week</h3>
+        <p class="text-4xl font-black">32h 15m</p>
+      </div>
+      <div class="p-6 bg-gray-900 rounded-2xl border border-gray-800">
+        <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Deep Work</h3>
+        <p class="text-4xl font-black text-purple-400">72%</p>
+      </div>
+      <div class="p-6 bg-gray-900 rounded-2xl border border-gray-800">
+        <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Top Project</h3>
+        <p class="text-xl font-bold mt-2 truncate text-blue-400">coderoller-daemon</p>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Repositories List -->
+      <div class="col-span-2 bg-gray-900 rounded-2xl p-6 border border-gray-800 text-white">
+        <h2 class="text-xl font-bold mb-6 flex justify-between items-center">Recent Repositories <span class="text-sm font-normal text-gray-400 cursor-pointer hover:text-white transition">View All</span></h2>
+        <div id="repo-list" class="space-y-4">
+          <!-- Static mock data instead of JS rendering to ensure SEO/layout works instantly -->
+          <div class="flex justify-between items-center p-4 border border-gray-800 rounded-xl hover:bg-gray-800 transition cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-500">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-white">coderoller-daemon</h4>
+                <p class="text-sm text-gray-400">Branch: feature/sqlite-optimize</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-white">3h 12m</p>
+              <span class="text-xs font-bold bg-orange-500/20 text-orange-400 px-2 py-1 rounded">Rust</span>
+            </div>
+          </div>
+          
+          <div class="flex justify-between items-center p-4 border border-gray-800 rounded-xl hover:bg-gray-800 transition cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center text-yellow-500">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-white">website-v2</h4>
+                <p class="text-sm text-gray-400">Branch: main</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-white">2h 45m</p>
+              <span class="text-xs font-bold bg-blue-500/20 text-blue-400 px-2 py-1 rounded">TypeScript</span>
+            </div>
+          </div>
+          
+          <div class="flex justify-between items-center p-4 border border-gray-800 rounded-xl hover:bg-gray-800 transition cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-500">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-white">sync-server</h4>
+                <p class="text-sm text-gray-400">Branch: fix/auth-token</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-white">0h 45m</p>
+              <span class="text-xs font-bold bg-green-500/20 text-green-400 px-2 py-1 rounded">Go</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Productivity Breakdown -->
+      <div class="col-span-1 bg-gray-900 rounded-2xl p-6 border border-gray-800 text-white flex flex-col">
+        <h2 class="text-xl font-bold mb-6">Language Breakdown</h2>
+        <div class="flex-grow space-y-6">
+          <div>
+            <div class="flex justify-between text-sm mb-2"><span class="text-gray-300">Rust</span><span class="text-white font-bold">52%</span></div>
+            <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-orange-500 h-2 rounded-full w-[52%] shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2"><span class="text-gray-300">TypeScript</span><span class="text-white font-bold">28%</span></div>
+            <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-blue-500 h-2 rounded-full w-[28%] shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2"><span class="text-gray-300">Go</span><span class="text-white font-bold">12%</span></div>
+            <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-green-500 h-2 rounded-full w-[12%] shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-2"><span class="text-gray-300">Other</span><span class="text-white font-bold">8%</span></div>
+            <div class="w-full bg-gray-800 h-2 rounded-full"><div class="bg-gray-500 h-2 rounded-full w-[8%]"></div></div>
+          </div>
+        </div>
+        <div class="mt-8 pt-6 border-t border-gray-800 text-center">
+          <p class="text-sm text-gray-500 italic">Last synced 5 mins ago</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <script>
-    document.getElementById('sidebar_username').innerText = localStorage.getItem('username') || 'prabhav chakka';
-    setTimeout(() => document.getElementById('today-stats').innerText = '4h 12m', 2000);
-    setTimeout(() => document.getElementById('week-stats').innerText = '25h 45m', 500);
-    
-    const renderRepos = () => {
-      const repos = ['coderoller-core', 'website-v2', 'linux-kernel'];
-      const html = repos.map(r => `<div class="p-2 border-b border-gray-800" onclick="alert('Clicked ' + '${r}')">${r} <span class="tag bg-blue-500/10 text-blue-400 px-2 py-1 rounded">Tag</span></div>`).join('');
-      document.getElementById('repo-list').innerHTML = html;
-    };
-    renderRepos();
-    
-    document.getElementById('repo-list').addEventListener('click', (e) => {
-      if (e.target.classList.contains('tag')) {
-        console.log("Tag Clicked!");
-        // Missing e.stopPropagation(), so the onclick in the div also fires
-      }
-    });
-  </script>
 </body>
 </html>
