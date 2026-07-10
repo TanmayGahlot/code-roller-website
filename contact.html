@@ -447,6 +447,11 @@
         // Simulate API call with a 1.5 second delay
         await new Promise(resolve => setTimeout(resolve, 1500));
         
+        // Simulate occasional failures (10% chance)
+        if (Math.random() < 0.1) {
+          throw new Error('SMTP Error');
+        }
+        
         // Success
         this.successBanner.classList.remove('hidden');
         this.errorBanner.classList.add('hidden');
